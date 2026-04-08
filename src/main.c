@@ -11,12 +11,12 @@
 #define F3_PIN 21
 #define F4_PIN 19
 #define F5_PIN 18
-#define F6_PIN 5    // Problematico!!!
+#define F6_PIN 5    // Pin problematico!!!
 #define F7_PIN 17
 #define F8_PIN 16
 
 #define CR1_PIN 27
-#define CR2_PIN 14  // Problematico!!!
+#define CR2_PIN 14  // Pin problematico!!!
 #define CR3_PIN 12
 #define CR4_PIN 13
 
@@ -346,8 +346,6 @@ int wait_for_button_press() {
             return 4; // Arriba
         }
         
-        // Es vital incluir este delay en ciclos infinitos para no asfixiar 
-        // al Watchdog Timer de FreeRTOS (Task Watchdog)
         vTaskDelay(pdMS_TO_TICKS(10)); 
     }
 }
@@ -564,7 +562,7 @@ void app_main() {
         in_cicle = false;
         }
         
-        if (btn2_state == 0 && end == false && in_cicle == false){ // Botón 1 presionado - Nivel 1
+        if (btn2_state == 0 && end == false && in_cicle == false){ // Botón 2 presionado - Nivel 2
             level_2();
             in_cicle = true;
             if (wait_for_button_press() == 1){
